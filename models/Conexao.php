@@ -5,7 +5,7 @@ class Conexao{
     private static $host = "localhost";
     private static $usuario = "root";
     private static $senha = "";
-    private static $banco = "estoque";
+    private static $banco = "series";
     private static $porta = 3306;
 
     private function __construct()
