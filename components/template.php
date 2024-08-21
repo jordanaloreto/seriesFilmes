@@ -15,24 +15,45 @@
             <div>
                 <div class="dropdown">
                     <a class="navbar-brand dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        Livros
+                        <?php
+                        $modulo = 'Módulos';
+                        if (isset($_GET['pg'])) {
+                            switch ($_GET['pg']) {
+                                case 'form_filme':
+                                    $modulo = 'Filmes';
+                                    break;
+                                case 'form_livro':
+                                    $modulo = 'Livros';
+                                    break;
+                                case 'form_serie':
+                                    $modulo = 'Séries';
+                                    break;
+                                case 'form_stream':
+                                    $modulo = 'Streams';
+                                    break;
+                                case 'form_genero':
+                                    $modulo = 'Genero';
+                                    break;
+                            }
+                        }
+                        echo $modulo;
+                        ?>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="form_livro.php">Livros</a></li>
-                        <li><a class="dropdown-item" href="form_filme.php">Filmes</a></li>
-                        <li><a class="dropdown-item" href="form_serie.php">Séries</a></li>
-                        <li><a class="dropdown-item" href="form_geral.php">Geral</a></li>
+                        <li><a class="dropdown-item" href="?pg=form_livro">Livros</a></li>
+                        <li><a class="dropdown-item" href="?pg=form_filme">Filmes</a></li>
+                        <li><a class="dropdown-item" href="?pg=form_serie">Séries</a></li>
+                        <li><a class="dropdown-item" href="?pg=form_stream">Streams</a></li>
+                        <li><a class="dropdown-item" href="?pg=form_genero">Gênero</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Container with rounded corners for sidebar and content -->
     <div class="container mt-4 p-4" style="border: 2px solid black; border-radius: 25px;">
         <div class="row">
             <div class="col-md-3" style="border-right: 2px solid black;">
-                <!-- Sidebar -->
                 <ul class="list-group">
                     <li class="list-group-item">
                         <a href="#">Cadastrar</a>
@@ -42,12 +63,16 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-9" style="border-left: 2px solid black;">
-                <!-- Linha amarela horizontal -->
-                <div style="border-bottom: 2px solid black; margin-bottom: 10px;"></div>
+            <div class="col-md-9" style="border-left: 1px solid black;">
+                <!-- <div style="border-bottom: 2px solid black; margin-bottom: 10px;"></div> -->
                 <!-- Conteúdo Principal -->
-                <h1>Conteúdo Principal</h1>
-                <!-- O restante do conteúdo -->
+                <?php
+                if (!empty($conteudo)) {
+                    include_once $conteudo;
+                } else {
+                    echo "<h1>Bem-vindo ao Sistema!</h1>";
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -80,8 +105,11 @@
     .list-group-item a {
         text-decoration: none;
     }
+    body {
+    padding-bottom: 30px; /* Ajuste o valor conforme necessário */
+}
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>

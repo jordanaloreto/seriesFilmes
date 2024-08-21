@@ -1,5 +1,5 @@
 <?php
-    require_once "models/Conexao.php";
+require_once "models/Conexao.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -10,18 +10,33 @@
     <title>Sistema</title>
 </head>
 <body>
-    <?php
-        $conexao = Conexao::getInstance();
-        include_once "components/template.php";
-        
-        // Verifica se a variável PG existe e se o arquivo também existe
-        if(!isset($_GET["pg"]) || !file_exists("views/" . $_GET["pg"] . ".php")) {
-            // Se a variável não existe ou o arquivo não é encontrado, inclui uma página padrão
-            include_once "components/template.php";  // Altere para o nome da sua página padrão
-        } else {
-            // Se existe, inclui a página correspondente
-            include_once "views/" . $_GET["pg"] . ".php";
-        }
+<?php
+require_once "models/Conexao.php";
+
+$conexao = Conexao::getInstance();
+
+// Define o conteúdo dinâmico a ser carregado
+if (isset($_GET["pg"])) {
+    $pagina = "views/" . $_GET["pg"] . ".php";
+
+    if ($_GET["pg"] === "form_filme") {
+        $pagina = "views/filmes/form_filme.php";
+    }
+    if ($_GET["pg"] === "form_stream") {
+        $pagina = "views/gerais/form_stream.php";
+    }
+
+    if (file_exists($pagina)) {
+        $conteudo = $pagina;
+    } else {
+        $conteudo = "";  // Se preferir, pode criar uma página de erro ou mensagem padrão
+    }
+} else {
+    $conteudo = "";  // Mesma lógica caso nenhuma página seja definida
+}
+
+include_once "components/template.php";
+
     ?>
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
