@@ -28,6 +28,9 @@
                                 case 'form_serie':
                                     $modulo = 'Séries';
                                     break;
+                                case 'streams':
+                                    $modulo = 'Streams';
+                                    break;
                                 case 'form_stream':
                                     $modulo = 'Streams';
                                     break;
@@ -43,7 +46,7 @@
                         <li><a class="dropdown-item" href="?pg=form_livro">Livros</a></li>
                         <li><a class="dropdown-item" href="?pg=form_filme">Filmes</a></li>
                         <li><a class="dropdown-item" href="?pg=form_serie">Séries</a></li>
-                        <li><a class="dropdown-item" href="?pg=form_stream">Streams</a></li>
+                        <li><a class="dropdown-item" href="?pg=streams">Streams</a></li>
                         <li><a class="dropdown-item" href="?pg=form_genero">Gênero</a></li>
                     </ul>
                 </div>
@@ -53,7 +56,7 @@
 
     <div class="container mt-4 p-4" style="border: 2px solid black; border-radius: 25px;">
         <div class="row">
-            <div class="col-md-3" style="border-right: 2px solid black;">
+            <!-- <div class="col-md-3" style="border-right: 2px solid black;">
                 <ul class="list-group">
                     <li class="list-group-item">
                         <a href="#">Cadastrar</a>
@@ -62,8 +65,8 @@
                         <a href="#">Listas</a>
                     </li>
                 </ul>
-            </div>
-            <div class="col-md-9" style="border-left: 1px solid black;">
+            </div> -->
+            <!-- <div class="col-md-9" style="border-left: 1px solid black;"> -->
                 <!-- <div style="border-bottom: 2px solid black; margin-bottom: 10px;"></div> -->
                 <!-- Conteúdo Principal -->
                 <?php
@@ -73,7 +76,7 @@
                     echo "<h1>Bem-vindo ao Sistema!</h1>";
                 }
                 ?>
-            </div>
+            <!-- </div> -->
         </div>
     </div>
 </div>

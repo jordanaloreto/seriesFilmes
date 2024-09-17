@@ -62,7 +62,7 @@ class StreamController{
             $stream = $stream->getStream();
             $preco = $stream->getPreco();
 
-            $stmt = $conexao->prepare("UPDATE stream SET stream = :stream, preco = :preco WHERE id = :id");
+            $stmt = $conexao->prepare("UPDATE streams SET stream = :stream, preco = :preco WHERE id = :id");
             $stmt->bindParam(":stream", $stream);
             $stmt->bindParam(":preco", $preco);
             $stmt->bindParam(":id", $id);
