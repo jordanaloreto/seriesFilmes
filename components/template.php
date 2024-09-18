@@ -34,6 +34,9 @@
                                 case 'form_stream':
                                     $modulo = 'Streams';
                                     break;
+                                case 'generos':
+                                    $modulo = 'Genero';
+                                    break;
                                 case 'form_genero':
                                     $modulo = 'Genero';
                                     break;
@@ -47,7 +50,7 @@
                         <li><a class="dropdown-item" href="?pg=form_filme">Filmes</a></li>
                         <li><a class="dropdown-item" href="?pg=form_serie">Séries</a></li>
                         <li><a class="dropdown-item" href="?pg=streams">Streams</a></li>
-                        <li><a class="dropdown-item" href="?pg=form_genero">Gênero</a></li>
+                        <li><a class="dropdown-item" href="?pg=generos">Gênero</a></li>
                     </ul>
                 </div>
             </div>

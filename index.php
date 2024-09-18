@@ -25,11 +25,14 @@ if (isset($_GET["pg"])) {
     if ($_GET["pg"] === "streams") {
         $pagina = "views/gerais/streams.php";
     }
-    if ($_GET["pg"] === "form_genero") {
-        $pagina = "views/gerais/form_genero.php";
-    }
     if ($_GET["pg"] === "form_stream") {
         $pagina = "views/gerais/form_stream.php";
+    }
+    if ($_GET["pg"] === "generos") {
+        $pagina = "views/gerais/generos.php";
+    }
+    if ($_GET["pg"] === "form_genero") {
+        $pagina = "views/gerais/form_genero.php";
     }
 
     if (file_exists($pagina)) {

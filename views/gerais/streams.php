@@ -37,5 +37,5 @@ $streams = $streamController->findAll(); // Recupera todas as streams do banco
             <?php endforeach; ?>
         </tbody>
     </table>
-    <a href="?pg=form_stream" class="btn btn-primary">Adicionar Stream</a>
+    <a href="?pg=form_stream" class="btn btn-primary">Cadastrar</a>
 </div>
