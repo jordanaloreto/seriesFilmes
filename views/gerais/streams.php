@@ -1,5 +1,5 @@
 <?php
-require_once "controllers/StreamController.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/seriesFilmes/controllers/StreamController.php";
 
 // Instanciando o controlador de streams
 $streamController = new StreamController();

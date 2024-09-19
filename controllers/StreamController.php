@@ -1,6 +1,7 @@
 <?php
 
-require_once "models/Streams.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/seriesFilmes/models/Streams.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/seriesFilmes/models/Conexao.php";
 
 class StreamController{
 

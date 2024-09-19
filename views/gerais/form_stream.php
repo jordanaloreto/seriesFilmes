@@ -1,6 +1,6 @@
 <?php
 
-require_once "controllers/StreamController.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/seriesFilmes/controllers/StreamController.php";
 
 if (isset($_GET["id"])) {
     $streamController = new StreamController();
@@ -19,7 +19,7 @@ if (isset($_POST["stream"]) && isset($_POST["preco"])) {
         $streamController->save($stream);
     }
     // Voltando pra tela anterior
-    // header("Location: ?pg=streams");
+    header("Location: /seriesFilmes/index.php?pg=streams");
     // Encerra a execução do script php
     exit();
 }
@@ -27,16 +27,17 @@ if (isset($_POST["stream"]) && isset($_POST["preco"])) {
 ?>
 <div class="container mt-4">
     <h2>Cadastrar Stream</h2>
-    <form action="form_stream.php" method="POST" enctype="multipart/form-data">
+    <form action="views/gerais/form_stream.php" method="POST" enctype="multipart/form-data">
         <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Stream" id="floatingTextarea"></textarea>
-            <label for="floatingTextarea">Stream</label>
+            <textarea class="form-control" name="stream" placeholder="Stream" id="floatingTextarea"><?= isset($stream) ? htmlspecialchars($stream->getStream()) : '' ?></textarea>
+        <label for="floatingTextarea">Stream</label>
         </div>
         <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Preço" id="floatingTextarea2"></textarea>
-            <label for="floatingTextarea2">Preço</label>
+            <textarea class="form-control" name="preco" placeholder="Preço" id="floatingTextarea2"><?= isset($stream) ? htmlspecialchars($stream->getPreco()) : '' ?></textarea>
+        <label for="floatingTextarea2">Preço</label>
         </div>
         <button class="btn btn-primary" type="submit">Salvar</button>
     </form>
 </div>
+
 
